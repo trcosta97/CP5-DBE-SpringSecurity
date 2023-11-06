@@ -42,16 +42,15 @@ public class Usuario implements UserDetails {
         this.nome = data.nome();
         this.login = data.login();
         this.senha = data.senha();
+        this.role = data.role();
     }
 
-    public Usuario(DadosAutorCadastrarFicha data){
-        this.id = data.id();
-    }
 
     public Usuario(AtualizarUsuarioDTO data) {
         this.nome = data.nome();
         this.senha = data.senha();
         this.login = data.login();
+
 
     }
 

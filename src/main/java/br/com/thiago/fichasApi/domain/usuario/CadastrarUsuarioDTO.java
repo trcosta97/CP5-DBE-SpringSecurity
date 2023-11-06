@@ -8,5 +8,7 @@ public record CadastrarUsuarioDTO(
         @NotBlank
         String login,
         @NotBlank
-        String senha) {
+        String senha,
+        @NotBlank
+        String role) {
 }

@@ -23,61 +23,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    public Usuario getById(Long id){
-        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
-        return optionalUsuario.orElse(null);
-    }
 
-    public List<Usuario> getAll(){
-        return usuarioRepository.findAll();
-    }
-
-    public Usuario update(Long id, Usuario data){
-        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
-        if (optionalUsuario.isPresent()){
-            Usuario updatedUsuario = optionalUsuario.get();
-            if (data.getLogin() != null){
-                updatedUsuario.setLogin(data.getLogin());
-            }
-            if(data.getNome() != null){
-                updatedUsuario.setNome(data.getNome());
-            }
-            if(data.getSenha() != null){
-                updatedUsuario.setSenha(data.getSenha());
-            }
-            return usuarioRepository.save(updatedUsuario);
-
-        }
-        return null;
-    }
-
-    public Usuario update(Usuario data, Long id){
-        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
-        if (optionalUsuario.isPresent()){
-            Usuario updatedUsuario = optionalUsuario.get();
-            if(data.getNome() != null){
-                updatedUsuario.setNome(data.getNome());
-            }
-            if(data.getLogin() != null){
-                updatedUsuario.setLogin(data.getLogin());
-            }
-            if(data.getSenha() != null){
-                updatedUsuario.setSenha(data.getSenha());
-            }
-            return usuarioRepository.save(updatedUsuario);
-        }
-        return null;
-    }
-
-    public Usuario delete(Long id){
-        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
-        if (optionalUsuario.isPresent()){
-            Usuario user = optionalUsuario.get();
-            usuarioRepository.delete(user);
-            return user;
-        }
-        return null;
-    }
 
 
 }

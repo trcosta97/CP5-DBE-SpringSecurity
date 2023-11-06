@@ -28,31 +28,5 @@ public class UsuarioController {
         return ResponseEntity.created(uri).body(savedUsuario);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id){
-        var foundUsuario = usuarioService.getById(id);
-        return ResponseEntity.ok(foundUsuario);
 
-    }
-
-    @GetMapping
-    @CrossOrigin(origins="*")
-    public ResponseEntity<List<Usuario>> getAllUsuarios(){
-        List<Usuario> usuarios = usuarioService.getAll();
-        return ResponseEntity.ok(usuarios);
-    }
-
-    @PutMapping("{id}")
-    public ResponseEntity<Usuario> updateUsuario(@RequestBody @Valid AtualizarUsuarioDTO data, @PathVariable Long id){
-        var dadosAtualizados = new Usuario(data);
-        var usuarioAtualizado = usuarioService.update(id, dadosAtualizados);
-        return ResponseEntity.ok(usuarioAtualizado);
-    }
-
-    @DeleteMapping("{id}")
-    public ResponseEntity<Usuario> deleteUsuario(@PathVariable Long id){
-        var usuarioApagado = usuarioService.delete(id);
-        return ResponseEntity.ok(usuarioApagado);
-
-    }
 }
